@@ -1,0 +1,13 @@
+{
+    "name": "bymurilo/cronos",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.0",
+        "team-reflex/discord-php": "dev-master",
+        "ext-json": "*",
+        "ext-zlib": "*",
+        "ext-uv": "*"
+    },
+    "autoload": {}
+}
