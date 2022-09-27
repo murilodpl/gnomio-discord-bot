@@ -1,0 +1,24 @@
+{
+  "name": "cronos-discord-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node bot.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/murilodpl/cronos-discord-bot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/murilodpl/cronos-discord-bot/issues"
+  },
+  "homepage": "https://github.com/murilodpl/cronos-discord-bot#readme",
+  "dependencies": {
+    "discord.js": "^14.5.0",
+    "dotenv": "^16.0.2"
+  }
+}
