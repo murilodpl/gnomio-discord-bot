@@ -4,7 +4,7 @@ const axios = require('axios');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('joke')
-        .setDescription('Replies with dirty joke!'),
+        .setDescription('Responde com uma piada de mal gosto!'),
     async execute(interaction) {
         let joke = await requestJoke();
         return interaction.reply(joke);
