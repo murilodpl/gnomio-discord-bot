@@ -5,7 +5,7 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('joke')
         .setDescription('Responde com uma piada de mal gosto!'),
-    async execute(interaction) {
+    async execute({ client, interaction }) {
         let joke = await requestJoke();
         return interaction.reply(joke);
     },
