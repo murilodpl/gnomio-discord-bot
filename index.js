@@ -20,6 +20,9 @@ for (const file of eventFiles) {
 	}
 }
 
+/* Create music queue */
+client.queue = [];
+
 /* Commands handler */
 client.commands = new Collection();
 const commandsPath = path.join(__dirname, 'commands');
