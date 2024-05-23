@@ -10,24 +10,25 @@ module.exports = {
                 .setDescription('quantidade de minutos a ser cronometrada')
                 .setRequired(true)),
     async execute({ client, interaction }) {
-        let numbersEmotes = [':zero:', ':one:', ':two:', ':three:', ':four:', ':five:', ':six:', ':seven:', ':eight:', ':nine:'];
         let minutes = parseInt(interaction.options.getString('minutos'));
-        let message = ':timer: :timer: :timer: :timer: :timer: :timer: :timer: :timer: :timer: :timer: :timer: :timer:';
+        let total_in_seconds = minutes * 60000;
 
+        let today = new Date();
+        let start_time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+
+        let today_plus_seconds = new Date(today.getTime() + total_in_seconds);
+        let timer_discord = '<t:' + Math.floor(today_plus_seconds.getTime() / 1000) + ':R>';
+
+        let message = ':timer: :timer: :timer: :timer: :timer: :timer: :timer: :timer: :timer: :timer: :timer: :timer:';
+        message += '\n' + 'COMEÇANDO - ' + start_time;
+        message += '\n' +  timer_discord;
         await interaction.reply(message);
 
-        for (let i = 0; i < minutes; minutes--) {
-            let today = new Date();
-            let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        await wait(total_in_seconds);
 
-            let emoteMinutes = numbersEmotes[minutes] + ' : ' + numbersEmotes[0] + numbersEmotes[0];
-            message += '\n' + 'CONTANDO: ' + emoteMinutes + ' MINUTOS(S). (Horário: ' + time + ')';
-
-            await interaction.editReply(message);
-            await wait(60000);
-        }
-
-        message += '\n' + 'FINALIZADO';
+        let end_date = new Date();
+        let end_time = end_date.getHours() + ":" + end_date.getMinutes() + ":" + end_date.getSeconds();
+        message += '\n' + 'FINALIZADO - ' + end_time;
         message += '\n' + ':timer: :timer: :timer: :timer: :timer: :timer: :timer: :timer: :timer: :timer: :timer: :timer:';
         await interaction.editReply(message);
     },
